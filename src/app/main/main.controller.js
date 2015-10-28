@@ -27,7 +27,7 @@
       $timeout(function () {
         vm.classAnimation = '';
         $timeout.cancel(promise);
-      }, 1000);
+      }, 1150);
     }
 
     function showToastr() {
