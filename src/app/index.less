@@ -41,6 +41,8 @@ body {
 -------------------------------------------------- */
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar { margin-bottom: 0; border: 0 }
+
 .navbar-wrapper {
   position: absolute;
   top: 0;
@@ -72,8 +74,8 @@ body {
   margin-bottom: 60px;
 }
 /* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  z-index: 10;
+.carousel-caption {z-index: 10;
+  &.second{ margin-bottom: -40px }
 }
 
 /* Declare heights because of positioning of img element */

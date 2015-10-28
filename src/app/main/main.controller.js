@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -13,14 +13,21 @@
     vm.classAnimation = '';
     vm.creationDate = 1446031204049;
     vm.showToastr = showToastr;
+    vm.showCaption = false;
 
     activate();
 
     function activate() {
       getWebDevTec();
-      $timeout(function() {
-        vm.classAnimation = 'rubberBand';
-      }, 4000);
+      var promise = $timeout(function () {
+        vm.classAnimation = 'fadeInDown';
+        vm.showCaption = true;
+      }, 300);
+
+      $timeout(function () {
+        vm.classAnimation = '';
+        $timeout.cancel(promise);
+      }, 1000);
     }
 
     function showToastr() {
@@ -31,7 +38,7 @@
     function getWebDevTec() {
       vm.awesomeThings = webDevTec.getTec();
 
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
+      angular.forEach(vm.awesomeThings, function (awesomeThing) {
         awesomeThing.rank = Math.random();
       });
     }
