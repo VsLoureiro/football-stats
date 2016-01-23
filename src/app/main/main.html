@@ -1,24 +1,8 @@
-  <div>
-    <acme-navbar creation-date="main.creationDate"></acme-navbar>
-  </div>
-
-  <!--<div class="jumbotron text-center">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p class="animated infinite" ng-class="main.classAnimation">
-      <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
-    </p>
-    <p>
-      With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
-    </p>
-  </div>-->
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img class="first-slide" src="../assets/images/soccer.png" alt="First slide">
+        <img class="first-slide" ng-src="{{main.jumboImagePath}}" alt="First slide">
+        <div ng-i></div>
         <div class="container">
           <div class="carousel-caption">
             <h1>Welcome to Football Stats</h1>
@@ -32,13 +16,13 @@
   </div>
 
   <div>
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+    <div class="col-sm-4 col-md-3" ng-repeat="league in main.leagueList">
+      <div class="thumbnail" ng-click="main.showLeagueTable(league)">
+        <img class="pull-right" ng-src="assets/images/{{ league.logo }}" alt="{{ league.caption }}">
         <div class="caption">
-          <h3>{{ awesomeThing.title }}</h3>
-          <p>{{ awesomeThing.description }}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
+          <h3>{{ league.caption }}</h3>
+          <p>{{ league.caption }}</p>
+          <p><a ng-href="{{league.id}}">{{ league.id }}</a></p>
         </div>
       </div>
     </div>

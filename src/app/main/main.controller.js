@@ -6,19 +6,24 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
+  function MainController($timeout, $log, footballData, toastr, $location) {
     var vm = this;
+    vm.jumboImagePath = 'assets/images/soccer-min.png';
 
-    vm.awesomeThings = [];
+    vm.leagueList = [];
     vm.classAnimation = '';
     vm.creationDate = 1446031204049;
     vm.showToastr = showToastr;
     vm.showCaption = false;
 
+    vm.showLeagueTable = function (league) {
+      $location.path('/leagueTable/' + league.id);
+    };
+
     activate();
 
     function activate() {
-      getWebDevTec();
+      getLeagues();
       var promise = $timeout(function () {
         vm.classAnimation = 'fadeInDown';
         vm.showCaption = true;
@@ -35,12 +40,14 @@
       vm.classAnimation = '';
     }
 
-    function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
-
-      angular.forEach(vm.awesomeThings, function (awesomeThing) {
-        awesomeThing.rank = Math.random();
-      });
+    function getLeagues() {
+      footballData.getLeagues().then(function (leagueListTemp) {
+          leagueListTemp = footballData.addLogosProperty(leagueListTemp);
+          vm.leagueList = leagueListTemp;
+        },
+        function () {
+          $log.error('Error connecting to api!');
+        });
     }
   }
 })();

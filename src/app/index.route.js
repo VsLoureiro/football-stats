@@ -12,6 +12,11 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
+      .when('/leagueTable/:id', {
+        templateUrl: 'app/view/leagueTable.html',
+        controller: 'LeagueTableController',
+        controllerAs: 'leagueCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
