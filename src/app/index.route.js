@@ -17,6 +17,11 @@
         controller: 'LeagueTableController',
         controllerAs: 'leagueCtrl'
       })
+      .when('/teamDetails/:id', {
+        templateUrl: 'app/views/teamDetails.html',
+        controller: 'TeamDetailsController',
+        controllerAs: 'teamCtrl'
+      })
       .when('/about', {
         templateUrl: 'app/views/about.html',
         controller: 'AboutController',

@@ -49,8 +49,12 @@
       return doRequest(apiUrl + 'soccerseasons', 'GET');
     };
 
-    this.getTeamDetails = function () {
-      return doRequest(apiUrl + 'soccerseasons', 'GET');
+    this.getPlayerDetails = function (teamid) {
+      return doRequest(apiUrl + 'teams/' + teamid + '/players', 'GET');
+    };
+
+    this.getTeamDetails = function (teamid) {
+      return doRequest(apiUrl + 'teams/' + teamid, 'GET');
     };
 
     this.getLeagueFixtures = function (leagueId, matchday) {
@@ -78,7 +82,9 @@
       getLeagues: this.getLeagues,
       getLeagueFixtures: this.getLeagueFixtures,
       getLeagueTable: this.getLeagueTable,
-      addLogosProperty: this.addLogosProperty
+      addLogosProperty: this.addLogosProperty,
+      getTeamDetails: this.getTeamDetails,
+      getPlayerDetails: this.getPlayerDetails
     }
   }
 

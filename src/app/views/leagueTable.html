@@ -3,8 +3,6 @@
 <ul class="nav nav-tabs" id="myTab">
   <li class="active" style="cursor: pointer"><a data-target="#table" data-toggle="tab">League Table</a></li>
   <li style="cursor: pointer"><a data-target="#fixtures" data-toggle="tab">Fixtures</a></li>
-  <li style="cursor: pointer"><a data-target="#messages" data-toggle="tab">Messages</a></li>
-  <li style="cursor: pointer"><a data-target="#settings" data-toggle="tab">Settings</a></li>
 </ul>
 
 <div class="tab-content">
@@ -25,7 +23,7 @@
       </thead>
       <tbody>
       <tr ng-repeat="team in leagueCtrl.leagueTable.standing">
-        <td>{{team.teamName}}</td>
+        <td style="cursor: pointer" ng-click="leagueCtrl.getTeamDetails(team._links.team.href)">{{team.teamName}}</td>
         <td>{{team.position}}</td>
         <td>{{team.points}}</td>
         <td>{{team.playedGames}}</td>
