@@ -4,7 +4,7 @@
 
   angular
     .module('footballStats')
-    .controller('TeamDetailsController', TeamTableController);
+    .controller('TeamDetailsController', TeamDetailsController);
 
   function TeamDetailsController(footballData, $route, $log){
     var vm = this;
