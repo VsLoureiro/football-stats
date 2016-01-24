@@ -1,6 +1,6 @@
 <nav class="navbar navbar-static-top navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
+    <div class="navbar-header" ng-click="vm.activate('home')">
       <a class="navbar-brand" ng-href="#/">
         <span class="glyphicon glyphicon-home"></span> Football Stats
       </a>
@@ -8,9 +8,9 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
-        <li class="active"><a ng-href="#/">Home</a></li>
-        <li><a ng-href="#/">About</a></li>
-        <li><a ng-href="#/">Contact</a></li>
+        <li ng-click="vm.activate('home')" ng-class="vm.homeActive"><a ng-href="#/">Home</a></li>
+        <li ng-click="vm.activate('about')" ng-class="vm.aboutActive"><a ng-href="#/about">About</a></li>
+        <!--<li><a ng-href="#/">Contact</a></li-->
       </ul>
     </div>
   </div>

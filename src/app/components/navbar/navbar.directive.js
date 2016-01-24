@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -11,7 +11,7 @@
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-          creationDate: '='
+        creationDate: '='
       },
       controller: NavbarController,
       controllerAs: 'vm',
@@ -23,6 +23,20 @@
     /** @ngInject */
     function NavbarController(moment) {
       var vm = this;
+      vm.homeActive = 'active';
+      vm.aboutActive = '';
+      vm.activate = function (name) {
+        switch (name) {
+          case 'home':
+            vm.aboutActive = '';
+            vm.homeActive = 'active';
+            break;
+          case 'about':
+            vm.homeActive = '';
+            vm.aboutActive = 'active';
+            break;
+        }
+      };
 
       // "vm.creation" is avaible by directive option "bindToController: true"
       vm.relativeDate = moment(vm.creationDate).fromNow();

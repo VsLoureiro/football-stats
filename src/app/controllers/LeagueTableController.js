@@ -7,13 +7,20 @@
 
   function LeagueTableController(footballData, $route, $log){
     var vm = this;
-    vm.data = {};
+    vm.leagueTable = {};
+    vm.leagueFixtures = {};
 
     footballData.getLeagueTable($route.current.params.id).then(function (leagueTable) {
-        vm.data = leagueTable.data;
+        vm.leagueTable = leagueTable.data;
+        footballData.getLeagueFixtures($route.current.params.id, leagueTable.data.matchday).then(function (leagueFixtures) {
+            vm.leagueFixtures = leagueFixtures.data.fixtures;
+          },
+          function () {
+            $log.error('LeagueTableController: Error getting league fixtures from api!');
+          });
       },
       function () {
-        $log.error('LeagueTableController: Error connecting to api!');
+        $log.error('LeagueTableController: Error getting league table from api!');
       });
   }
 

@@ -17,12 +17,10 @@
 
   <div>
     <div class="col-sm-4 col-md-3" ng-repeat="league in main.leagueList">
-      <div class="thumbnail" ng-click="main.showLeagueTable(league)">
+      <div class="thumbnail trans" ng-click="main.showLeagueTable(league)">
         <img class="pull-right" ng-src="assets/images/{{ league.logo }}" alt="{{ league.caption }}">
         <div class="caption">
           <h3>{{ league.caption }}</h3>
-          <p>{{ league.caption }}</p>
-          <p><a ng-href="{{league.id}}">{{ league.id }}</a></p>
         </div>
       </div>
     </div>

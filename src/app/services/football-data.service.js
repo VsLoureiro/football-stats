@@ -30,9 +30,6 @@
       },
       'DED': function () {
         return 'eredivisie-logo.png'
-      },
-      'CL': function () {
-        return 'champions-league-logo.png'
       }
     };
     var apiUrl = 'http://api.football-data.org/v1/';
@@ -50,6 +47,14 @@
 
     this.getLeagues = function () {
       return doRequest(apiUrl + 'soccerseasons', 'GET');
+    };
+
+    this.getTeamDetails = function () {
+      return doRequest(apiUrl + 'soccerseasons', 'GET');
+    };
+
+    this.getLeagueFixtures = function (leagueId, matchday) {
+      return doRequest(apiUrl + 'soccerseasons/' + leagueId + '/fixtures?matchday=' + matchday, 'GET');
     };
 
     this.addLogosProperty = function (leagues) {
@@ -71,6 +76,7 @@
 
     return {
       getLeagues: this.getLeagues,
+      getLeagueFixtures: this.getLeagueFixtures,
       getLeagueTable: this.getLeagueTable,
       addLogosProperty: this.addLogosProperty
     }

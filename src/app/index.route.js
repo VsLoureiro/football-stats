@@ -13,9 +13,14 @@
         controllerAs: 'main'
       })
       .when('/leagueTable/:id', {
-        templateUrl: 'app/view/leagueTable.html',
+        templateUrl: 'app/views/leagueTable.html',
         controller: 'LeagueTableController',
         controllerAs: 'leagueCtrl'
+      })
+      .when('/about', {
+        templateUrl: 'app/views/about.html',
+        controller: 'AboutController',
+        controllerAs: 'aboutCtrl'
       })
       .otherwise({
         redirectTo: '/'

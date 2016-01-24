@@ -1,0 +1,13 @@
+<h1 style="padding-left: 17px">This website was built using:</h1><br/>
+<div>
+  <div class="col-sm-6 col-md-4" ng-repeat="tech in aboutCtrl.technologies">
+    <div class="thumbnail" style="background-color: #DCDCDC">
+      <img class="pull-right" ng-src="assets/images/{{ tech.logo }}" alt="{{ tech.title }}">
+      <div class="caption">
+        <h3>{{ tech.title }}</h3>
+        <p>{{ tech.description }}</p>
+        <p><a ng-href="{{tech.url}}">{{ tech.title }}</a></p>
+      </div>
+    </div>
+  </div>
+</div>
