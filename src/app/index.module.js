@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('footballStats', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ngRoute', 'toastr']);
+    .module('footballStats', ['ui.bootstrap', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ngRoute', 'toastr']);
 
 })();

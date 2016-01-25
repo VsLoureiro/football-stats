@@ -1,11 +1,49 @@
 <h1>{{leagueCtrl.leagueTable.leagueCaption}}</h1>
 
-<ul class="nav nav-tabs" id="myTab">
+<uib-tabset>
+  <uib-tab heading="Team Details">
+    <h1>{{teamCtrl.team.name}}</h1>
+    <img width="200" height="200" ng-src="{{teamCtrl.team.crestUrl}}">
+    <br/>
+    <label for="squadValue">Squad Market Value</label>
+
+    <div id="squadValue">{{teamCtrl.team.squadMarketValue}}</div>
+  </uib-tab>
+  <uib-tab heading="Players">
+    <table class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Number</th>
+        <th>Nationality</th>
+        <th>Date Of Birth</th>
+        <th>Market Value</th>
+        <th>Contract Until</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="player in teamCtrl.players">
+        <td>{{player.name}}</td>
+        <td>{{player.position}}</td>
+        <td>{{player.jerseyNumber}}</td>
+        <td>{{player.nationality}}</td>
+        <td>{{player.dateOfBirth}}</td>
+        <td>{{player.marketValue}}</td>
+        <td>{{player.contractUntil}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </uib-tab>
+</uib-tabset>
+
+
+<!--<ul class="nav nav-tabs" id="myTab">
   <li class="active" style="cursor: pointer"><a data-target="#details" data-toggle="tab">Team Details</a></li>
   <li style="cursor: pointer"><a data-target="#players" data-toggle="tab">Players</a></li>
-</ul>
+</ul>-->
 
-<div class="tab-content">
+<!--<div class="tab-content">
   <div class="tab-pane fade in active" id="details">
     <h1>{{teamCtrl.team.name}}</h1>
     <img width="200" height="200" ng-src="{{teamCtrl.team.crestUrl}}">
@@ -40,5 +78,5 @@
       </tbody>
     </table>
   </div>
-</div>
+</div>-->
 
